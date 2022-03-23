@@ -30,6 +30,10 @@ def home():
 def about():
     return render_template('www.intellipaat.com')
 
+@app.route("/test1", methods=['POST'])
+def test1():
+    return render_template('basic-forms.html')
+
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
