@@ -32,7 +32,7 @@ def about():
 
 @app.route("/test1", methods=['POST'])
 def test1():
-    return render_template('~/testing/template/demo/pages/forms/basic-forms.html')
+    return render_template('../testing/template/demo/pages/forms/basic-forms.html')
 
 
 @app.route("/addemp", methods=['POST'])
