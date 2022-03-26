@@ -55,7 +55,12 @@ def checklogin():
 #def about():
 #    return render_template('www.intellipaat.com')
  
-
+@app.route("/AddEmp")
+def homepage():
+    #return "Hello World"
+    #return render_template('AddEmp.html')
+    return render_template('AddEmp.html')
+    
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
