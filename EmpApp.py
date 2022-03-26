@@ -45,7 +45,7 @@ def checklogin():
     rows = cursor.execute(query1)
     rows = rows.fetchall()
     if len(rows) == 1:
-        return render_template("AddEmp.html")
+        return redirect("/AddEmp")
     else:
         return "Wrong User ID or Worng password"
 
