@@ -39,7 +39,7 @@ def checklogin():
 
     #sqlconnection = sqlite3.Connection(currentlocation + "\Login.db")
     cursor = db_conn.cursor()
-    query1 = "SELECT user_id, password from user where username = {un} AND password = {pw}".format(un=UN, pw = PW)
+    query1 = "SELECT user_id, password from user where user_id = {un} AND password = {pw}".format(un=UN, pw = PW)
 
     rows = cursor.execute(query1)
     rows = rows.fetchall()
