@@ -40,15 +40,14 @@ def checklogin():
     #sqlconnection = sqlite3.Connection(currentlocation + "\Login.db")
     cursor = db_conn.cursor()
     query1 = "SELECT user_id, password from user where user_id = {un} AND password = {pw}".format(un=UN, pw = PW)
+    query2 = "failed"
     
-    return query1
-
     rows = cursor.execute(query1)
     rows = rows.fetchall()
     if len(rows) == 1:
-        return render_template("AddEmp.html")
+        return query1 #render_template("AddEmp.html")
     else:
-        return "Wrong User ID or Worng password"
+        return query2 #"Wrong User ID or Worng password"
 
 
 
