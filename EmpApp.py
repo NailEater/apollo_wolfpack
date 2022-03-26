@@ -22,7 +22,7 @@ db_conn = connections.Connection(
 
 )
 output = {}
-table = 'employee'
+table = 'employeeDB'
 
 
 
@@ -45,9 +45,9 @@ def checklogin():
     rows = cursor.execute(query1)
     rows = rows.fetchall()
     if len(rows) == 1:
-        return query1 #render_template("AddEmp.html")
+        return render_template("AddEmp.html")
     else:
-        return query2 #"Wrong User ID or Worng password"
+        return "Wrong User ID or Worng password"
 
 
 
