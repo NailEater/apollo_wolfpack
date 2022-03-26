@@ -22,7 +22,7 @@ db_conn = connections.Connection(
 
 )
 output = {}
-table = 'employeeDB'
+table = 'user'
 
 
 
