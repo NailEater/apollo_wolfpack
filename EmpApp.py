@@ -1,8 +1,12 @@
-from flask import Flask, render_template, request
+from crypt import methods
+from flask import Flask, render_template, request, redirect
 from pymysql import connections
 import os
 import boto3
 from config import *
+#import sqlite3
+
+currentlocation = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__)
 
@@ -21,16 +25,36 @@ output = {}
 table = 'employee'
 
 
-@app.route("/", methods=['GET', 'POST'])
-def home():
-    return render_template('AddEmp.html')
+
+@app.route("/")
+def homepage():
+    #return "Hello World"
+    #return render_template('AddEmp.html')
+    return render_template('login-page.html')
+
+@app.route("/", methods = ['POST'])
+def checklogin():
+    UN = request.form['username']
+    PW = request.form['password']
+
+    #sqlconnection = sqlite3.Connection(currentlocation + "\Login.db")
+    cursor = db_conn.cursor()
+    query1 = "SELECT user_id, password from user where username = {un} AND password = {pw}".format(un=UN, pw = PW)
+
+    rows = cursor.execute(query1)
+    rows = rows.fetchall()
+    if len(rows) == 1:
+        return render_template("AddEmp.html")
+    else:
+        return "Wrong User ID or Worng password"
 
 
-@app.route("/about", methods=['POST'])
-def about():
-    return render_template('www.intellipaat.com')
 
-
+#@app.route("/about", methods=['POST']) 
+#def about():
+#    return render_template('www.intellipaat.com')
+ 
+"""
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
@@ -40,8 +64,12 @@ def AddEmp():
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
 
+    
+
     insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
+
+    
 
     if emp_image_file.filename == "":
         return "Please select a file"
@@ -80,6 +108,15 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
+    
+    return render_template('AddEmp.html')
+"""
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
+
+"""
+if __name__ == "__main__":
+    app.run(debug=True)
+"""
