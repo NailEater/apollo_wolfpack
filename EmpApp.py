@@ -43,7 +43,7 @@ def checklogin():
     query2 = "failed"
     
     rows = cursor.execute(query1)
-    rows = rows.fetchall()
+    #rows = rows.fetchall()
     
     test = 1
     
