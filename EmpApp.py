@@ -32,6 +32,12 @@ def homepage():
     #return render_template('AddEmp.html')
     return render_template('login-page.html')
 
+@app.route("/AddEmp")
+def AddEmp():
+    #return "Hello World"
+    #return render_template('AddEmp.html')
+    return render_template('AddEmp.html')
+
 @app.route("/", methods = ['POST'])
 def checklogin():
     UN = request.form['username']
@@ -58,12 +64,6 @@ def checklogin():
 #@app.route("/about", methods=['POST']) 
 #def about():
 #    return render_template('www.intellipaat.com')
- 
-@app.route("/AddEmp")
-def AddEmp():
-    #return "Hello World"
-    #return render_template('AddEmp.html')
-    return render_template('AddEmp.html')
     
 @app.route("/addemp", methods=['POST'])
 def AddEmpOpt():
