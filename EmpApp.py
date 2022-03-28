@@ -55,7 +55,7 @@ def checklogin():
     
     #if len(rows) == 1:
     if test == 1:
-        return render_template("/AddEmp")
+        return render_template("AddEmp.html")
     else:
         return "Wrong User ID or Worng password"
 
