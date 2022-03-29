@@ -1,6 +1,6 @@
-customhost = "jiunxian99-dbinstance.cksrdsj5psau.us-east-1.rds.amazonaws.com"
+customhost = "wolfpack-markethub.cksrdsj5psau.us-east-1.rds.amazonaws.com"
 customuser = "admin"
 custompass = "Bait3273"
 customdb = "employeeDB"
-custombucket = "limjiunxian69-employee"
+custombucket = "wolfpack-mhub-data"
 customregion = "us-east-1"
