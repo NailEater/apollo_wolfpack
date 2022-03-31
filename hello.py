@@ -48,7 +48,7 @@ records = cursor.fetchall()
 users = []
 
 for row in records:
-    users.append(User(id=row[0], username=row[2], password=row[3]))
+    users.append(User(id=row[0], username=row[1], password=row[2]))
 
 #users.append(User(id=1, username='Anthony', password='password'))
 #users.append(User(id=2, username='Becca', password='secret'))
@@ -130,5 +130,11 @@ def dropsession():
     g.user = None
     return redirect('/')
 
+
 if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80, debug=True)
+
+"""
+if __name__ == "__main__":
     app.run(debug=True)
+"""
