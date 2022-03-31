@@ -8,6 +8,10 @@
 
 		<h1 style="color: DodgerBlue">Employee Database</h1>
 
+		<h2>
+			{{user}}'s Profile
+		</h2>
+
 		<body bgcolor="lightgrey">
 
 			<form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
@@ -29,7 +33,8 @@
 		  		<button type="submit" style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;">UPDATE DATABASE</button>
 
 			</form>
-<a href="/about">About Us</a>
+			<a href="/about">About Us</a>
+			<button type="submit" onclick="window.location = 'http://localhost:5000/dropsession'">Logout</button>
 		</body>
 
 	</font>
